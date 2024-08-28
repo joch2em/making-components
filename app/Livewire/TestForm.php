@@ -10,7 +10,6 @@ use Livewire\Component;
 
 class TestForm extends Component
 {
-    public string $isFormValid = "true";
     public $beschrijving;
     public $naam;
 
@@ -58,9 +57,7 @@ class TestForm extends Component
 
     public function isValid()
     {
-        $isFormValid = "false";
         $this->validate();
-        $isFormValid = "true";
         return true;
     }
 
