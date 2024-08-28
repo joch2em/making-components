@@ -4,12 +4,15 @@ namespace App\Livewire;
 
 use App\Components\Button;
 use App\Components\FormTitle;
+use App\Components\MultipleChoice;
 use App\Components\TextArea;
 use App\Components\TextInput;
 use Livewire\Component;
 
 class TestForm extends Component
 {
+    public $email;
+    public $multiple_choice;
     public $beschrijving;
     public $naam;
 
@@ -22,36 +25,46 @@ class TestForm extends Component
     {
         return [
             'beschrijving' => 'required|min:6',
-            'email' => 'required|',
+            'email' => 'required',
             'naam' => 'required|min:3',
+            'multiple_choice' => 'required',
         ];
     }
 
     public function render()
     {
-        $title = FormTitle::make('Dit is de titel van het formulier')   
+        $Title = FormTitle::make('Dit is de titel van het formulier')   
             ->position('M')
             ->subTitle('Dit is de subtitel van het formulier');
 
-        $name = TextInput::make('naam')
+        $Name = TextInput::make('naam')
             ->label('Naam:');
 
-        $email = TextInput::make('email')
+        $Email = TextInput::make('email')
             ->label('Email:');
 
-        $description = TextArea::make('beschrijving')
+        $MultipleChoice = MultipleChoice::make('multiple_choice')
+            ->label('Multiple Choice:')
+            ->options([
+                'Optie 1',
+                'Optie 2',
+                'Optie 3',
+            ]);
+
+        $Description = TextArea::make('beschrijving')
             ->label('Beschrijving:')
             ->columns(30)
             ->rows(5);
 
-        $submit = Button::make('submit');
+        $Submit = Button::make('submit');
 
         return view('livewire.test-form', [
-            'email' => $email,
-            'name' => $name,
-            'description' => $description,
-            'title' => $title,
-            'submit' => $submit,
+            'multipleChoice' => $MultipleChoice,
+            'Email' => $Email,
+            'name' => $Name,
+            'description' => $Description,
+            'title' => $Title,
+            'submit' => $Submit,
         ]);
     }
 
