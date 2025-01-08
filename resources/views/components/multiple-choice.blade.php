@@ -1,4 +1,4 @@
-{{-- <div class="flex justify-content-center">
+<div class="flex justify-content-center">
     <select 
     class="rounded-lg border-solid border-2 border-gray-100 shadow-sm sm:text-sm p-2 max-w-lg min-w-40 flex items-center"
     name="{{ $getName() }}" 
@@ -10,15 +10,15 @@
         @endforeach
     </select>
 </div>
-@error($getName()) <div class="error font-bold text-xs text-red-600 italic">{{ $message }}</div> @enderror --}}
+@error($getName()) <div class="error font-bold text-xs text-red-600 italic">{{ $message }}</div> @enderror
 
 
 
-<div class="max-w-lg">
-    <button type="button" wire:click='toggle()'>{{ $getLabel() }}</button>
+{{-- <div class="max-w-lg">
+    <button type="button" wire:click="toggle()">{{ $getLabel() }}</button>
     <ul wire:show='{{ $isOpen() }}'>
         @foreach ($getOptions() as $option)
             <li>{{ $option }}</li>
         @endforeach
     </ul>
-</div>
+</div> --}}

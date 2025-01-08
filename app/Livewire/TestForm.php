@@ -7,6 +7,7 @@ use App\Components\FormTitle;
 use App\Components\MultipleChoice;
 use App\Components\TextArea;
 use App\Components\TextInput;
+use App\Forms\Components\Testing2;
 use Livewire\Component;
 
 class TestForm extends Component

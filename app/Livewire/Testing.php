@@ -1,17 +1,18 @@
 <?php
-namespace App\Components;
+
+namespace App\Livewire;
 
 use Livewire\Component;
 use Illuminate\Contracts\Support\Htmlable;
 use Illuminate\Contracts\View\View;
 
-class MultipleChoice implements Htmlable{
-
+class Testing extends Component implements Htmlable
+{
     protected Component $livewire;
 
     protected string $label;
 
-    // public bool $open = false;
+    public bool $open = false;
 
     public array $options = [];
 
@@ -23,18 +24,17 @@ class MultipleChoice implements Htmlable{
         return new self($name);
     }
 
-    // public function toggle(){
-    //     $this->open = !$this->open;
-    //     dd("it worked");
-    // }
+    public function toggle(){
+        $this->open = !$this->open;
+    }
 
     public function getName(): string{
         return $this->name;
     }
 
-    // public function isOpen(): bool{
-    //     return $this->open;
-    // }
+    public function isOpen(): bool{
+        return $this->open;
+    }
 
     public function label(string $label): self{
         $this->label = $label;
@@ -70,11 +70,10 @@ class MultipleChoice implements Htmlable{
     }
 
     public function render(): View{
-        return view('components.multiple-choice', $this->extractPublicMethods());
+        return view('livewire.testing', $this->extractPublicMethods());
     }
 
     public function toHtml(): string{
         return $this->render()->render();
     }
-
 }
